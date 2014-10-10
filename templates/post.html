@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>{{ post_obj.title }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
     {% load staticfiles %}
     {% load jsonify %}
     <!-- Bootstrap -->
@@ -15,15 +15,11 @@
     <script src="{% static "js/models.js" %}"></script>
     <script src="{% static "js/hello.js" %}"></script>
     <script type="text/javascript">
-    hello.init({
-        facebook : '680886061993373',
-        twitter: 'yKJUzFNXKWsGaiD5zInpl984M',
-        google: '594781319423-71510ku0kbespcni802smdh31lijq0mp.apps.googleusercontent.com'
-});
     </script>
     <script type="text/javascript">
         var post = {{post_obj|jsonify}};
         var comment_array = post.comments;
+
     </script>
   </head>
   <body>  
@@ -36,7 +32,6 @@
   <li>About</li>
   <li>Contact</li>
   <li>Twitter</li>
-  <li>Instagram</li></br>
   <li>Betapp</li>
 </ul>
 </div>
@@ -59,10 +54,6 @@
     <div class="article_stats_like">
     <div class="article_stats_like_number"> <%= shares %> </div>
     <div class="article_stats_like_text"> Shares </div>
-    </div>
-    <div class="article_stats_comment">
-    <div class="article_stats_comment_number"> <%= comment_count %> </div>
-    <div class="article_stats_comment_text"> Replies </div>
     </div>
     <div class="article_stats_date">
     <div class="article_stats_date_day"> <%= date.day %>th </div>
@@ -108,7 +99,7 @@
 	<!--  <div class="share_button"> <img src="{% static 'img/hn-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');" onmouseover="this.src='{% static 'img/hn-share.png' %}';"onmouseout="this.src='{% static 'img/hn-share-trans.png' %}';"/> </div>-->
 </div>
 
-<div class="divider_text"> {{ post_obj.comment_count|safe }} Comments </div>
+<div class="divider_text"></div>
     <div class="comments" id="comments"></div>
     <div id="disqus_thread" class="comment"></div>
     <script type="text/javascript">
@@ -122,7 +113,6 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% comment %}<script type="text/template" id="comment-template">
 
 	<div class="comment">
@@ -244,7 +234,7 @@
 }
 </script>
 
-<div class="divider_text"> Related Articles </div>
+<div class="divider_text">  </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -37,10 +37,11 @@ a:link {
 	background-color: #fff;
 	float: left;
 	width: 30%;
+    min-width: 100px;
 	height:100%;
-	display: block;
+	display: inline;
+    position: fixed;
 	margin: 0px;
-	position: fixed;
 }
 
 .back_button {
@@ -180,7 +181,7 @@ a:link {
 
 .article_stats_date {
 	display: inline-block;
-	float: right;
+	float: left;
 	width: 33%;
 	padding-top: 10px;
 	height:100%;
@@ -206,6 +207,7 @@ a:link {
 	font-family: delicious;
 	font-size: 18px;
 	margin: 20px;
+    margin-top: 0px;
 	margin-bottom: 0;
     line-height: 1.5;
     width: 90%;
@@ -220,7 +222,7 @@ a:link {
 }
 
 .blog h3 {
-    text-align: left;
+    text-align: center;
 	font-size: 26px;
 	font-family: delicious;
     font-weight: normal;
@@ -229,7 +231,7 @@ a:link {
 
 .article_body ul {
     list-style: none;
-    width: 66%;
+    width: 80%;
     margin: 20px auto;
     padding: 0;
 }
