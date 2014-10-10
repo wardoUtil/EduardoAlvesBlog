@@ -5,7 +5,6 @@ import json
 from django.utils.safestring import SafeString
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from jsonify.decorators import ajax_request
 
 @csrf_exempt
 def create_comment(request):
