@@ -5,6 +5,7 @@ import json
 from django.utils.safestring import SafeString
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from jsonify.decorators import ajax_request
 
 @csrf_exempt
 def create_comment(request):
@@ -106,6 +107,6 @@ def render_homepage(request):
         post_obj = {}
         short_post_info(post, post_obj)
         response.append(post_obj)
-    return render(request, 'index.html', {'post_objs': SafeString(response)}, content_type='text/html')
+    return render(request, 'index.html', {'post_objs': response}, content_type='text/html')
 
 

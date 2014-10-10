@@ -13,7 +13,7 @@
     <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
     <script src="/js/models.js"></script>
     <script type="text/javascript">
-        var post_array = {{ posts }};
+        var post_array = {{ posts|jsonify|safe }};
         console.log(post_array);
     </script>
   </head>

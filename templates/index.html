@@ -7,6 +7,7 @@
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
     {% load staticfiles %}
+    {% load jsonify %}
     <link href=" {% static "css/index.css" %}" rel="stylesheet">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
     <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
@@ -15,7 +16,7 @@
     <script type="text/javascript">
     </script>
     <script type="text/javascript">
-        var post_array = {{post_objs}};
+        var post_array = {{post_objs|safe}};
     </script>
   </head>
   <body>  
