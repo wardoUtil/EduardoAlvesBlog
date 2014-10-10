@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+    <script src="js/models.js"></script>
+  </head>
+  <body>  
+<div class="menu">
+<div class="back_button"> <span>Back</span> </div>
+<div class="menu_body">
+	<div class="profile_picture"> <img src="img/profile_pic.png" /> 		<div class="profile_name">Eduardo Alves</div>
+	<div class="profile_description">Developer.Entrepreneur.Hustler</div>
+<ul class="menu_links">
+  <li>About</li>
+  <li>Contact</li>
+  <li>Twitter</li>
+  <li>Instagram</li></br>
+  <li>Current Startup: Betapp</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="blog">
+    <div class="top_share"> 
+	<div class="top_share_text">Help your friends learn how to hire a designer, share this article!</div>
+		<div class="share_button_top"> <img src="img/facebook-share-black.png" onmouseover="this.src='img/facebook-share.png';"onmouseout="this.src='img/facebook-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/twitter-share-black.png" onmouseover="this.src='img/twitter-share.png';"onmouseout="this.src='img/twitter-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/gplus-share-black.png" onmouseover="this.src='img/gplus-share.png';"onmouseout="this.src='img/gplus-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/hn-share-black.png" onmouseover="this.src='img/hn-share.png';"onmouseout="this.src='img/hn-share-black.png';"/> </div>
+    </div>
+<div id="posts-container"></div>
+<script type="text/template" id="post-template">
+
+ <div class="article_title"> <%= title %>
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> <%= shares %> </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> <%= comments %> </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date">
+    <div class="article_stats_date_day"> <%= date.day %>th </div>
+    <div class="article_stats_date_month"> <%= date.month %> </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="article_body"> <%= text %></div>
+
+</script>
+<div class="bot_share"> Sharing this article will increase your website shares by 350%. </br>
+	<div class="share_button"> <img src="img/facebook-share-black.png" onmouseover="this.src='img/facebook-share.png';"onmouseout="this.src='img/facebook-share-black.png';"/></div>
+	<div class="share_button"> <img src="img/twitter-share-black.png" onmouseover="this.src='img/twitter-share.png';"onmouseout="this.src='img/twitter-share-black.png';"/></div>
+	<div class="share_button"> <img src="img/gplus-share-black.png" onmouseover="this.src='img/gplus-share.png';"onmouseout="this.src='img/gplus-share-black.png';"/></div>
+	<div class="share_button"> <img src="img/hn-share-black.png" onmouseover="this.src='img/hn-share.png';"onmouseout="this.src='img/hn-share-black.png';"/> </div>
+</div>
+
+<div class="divider_text"> Comments </div>
+    <div class="comments" id="comments"></div>
+<script type="text/template" id="comment-template">
+
+	<div class="comment">
+		<div class="comment_picture"> <img src="<%= picture %>" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> <%= name %> </div>
+		<div class="comment_text"> <%= text %> </div>
+		<div class="comment_date"> <%= date.day%>th <%= date.month %>, <%= date.year %> </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+</script>
+    <script src="js/views.js"></script>
+    <script type="text/javascript">
+
+    var post1 = new Post({
+        title: 'How To Brand Yourself',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus.',
+        shares: 100,
+        comments: 50
+    });
+
+    var comment = new Comment({
+            name: 'Francisco Cruz',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante.',
+            date: {
+                day: 5,
+                month: 'October',
+                year: 2015
+            }
+        });
+
+    var comment2 = new Comment({
+            name: 'Francisco Cruz',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante.',
+            date: {
+                day: 5,
+                month: 'October',
+                year: 2015
+            }
+        });
+
+        posts.add(post1);
+        comments.add([comment, comment2]);
+        console.log(comments.toJSON());
+        console.log(posts.toJSON());
+
+    </script>
+<!--
+<div class="comments"> 
+	<div class="comment"> 
+		<div class="comment_picture"> <img src="img/profile_pic.png" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> King Dogo </div>
+		<div class="comment_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, </div>
+		<div class="comment_date"> 5th September, 2014 </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+</div>
+
+<div class="response_comment"> 
+		<div class="comment_picture"> <img src="img/profile_pic.png" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> King Dogo </div>
+		<div class="comment_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, </div>
+		<div class="comment_date"> 5th September, 2014 </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+</div>
+ 
+	<div class="comment"> 
+		<div class="comment_picture"> <img src="img/profile_pic.png" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> King Dogo </div>
+		<div class="comment_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, </div>
+		<div class="comment_date"> 5th September, 2014 </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+</div>
+
+	<div class="comment"> 
+		<div class="comment_picture"> <img src="img/profile_pic.png" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> King Dogo </div>
+		<div class="comment_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. </div>
+		<div class="comment_date"> 5th September, 2014 </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+
+</div>
+-->
+<div class="divider_text"> Leave A Comment </div>
+
+<div class="comment_box"> 
+<form action="">
+<textarea class="comment_input" name="comment" placeholder="Your comment here..."></textarea>
+<input type="text" class="new_comment_name" placeholder="Your name here...">
+<input type="text" class="new_comment_email" placeholder="Your email here...">
+<div class="comment_submit_buttons">
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit" value="submit" src="img/facebook-black.png" alt="submit Button" onMouseOver="this.src='img/facebook-reg.png'" onMouseOut="this.src='img/facebook-black.png'"> <p>Submit With Facebook</p> 
+</div>
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit" value="submit" src="img/twitter-black.png" alt="submit Button" onMouseOver="this.src='img/twitter-reg.png'" onMouseOut="this.src='img/twitter-black.png'"> <p>Submit With Twitter</p> 
+</div>
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit" value="submit" src="img/gplus-black.png" alt="submit Button" onMouseOver="this.src='img/gplus-reg.png'" onMouseOut="this.src='img/gplus-black.png'"> <p>Submit With Google+</p>
+</div>
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit" value="submit" src="img/email-black.png" alt="submit Button" onMouseOver="this.src='img/email-reg.png'" onMouseOut="this.src='img/email-black.png'"> <p>Submit With Email</span> </p> 
+</div>
+<div class="send_email_comment_button">
+<input type="image" class="facebook_submit" value="submit" src="img/send-email-comment-black.png" alt="submit Button" onMouseOver="this.src='img/send-email-comment-reg.png'" onMouseOut="this.src='img/send-email-comment-black.png'"> <p>Submit With Email</span> </p>
+</div>
+</div>
+</form>
+</div>
+
+<div class="divider_text"> Related Articles </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+</div>
+</div>
+</body>
+</html>

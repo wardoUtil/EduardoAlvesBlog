@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+    <script src="/js/models.js"></script>
+    <script type="text/javascript">
+        var post_array = {{ posts }};
+        console.log(post_array);
+    </script>
+  </head>
+  <body>  
+<div class="menu">
+<div class="back_button" style="visibility:hidden"> <span>Back</span> </div>
+<div class="menu_body">
+	<div class="profile_picture"> <img src="img/profile_pic.png" /> 		<div class="profile_name">Eduardo Alves</div>
+	<div class="profile_description">Developer.Entrepreneur.Hustler</div>
+<ul class="menu_links">
+  <li>About</li>
+  <li>Contact</li>
+  <li>Twitter</li>
+  <li>Instagram</li></br>
+  <li>Current Startup: Betapp</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="blog" id="blog">
+    <div class="top_share"> 
+	<div class="top_share_text">Help your friends learn how to hire a designer, share this article!</div>
+		<div class="share_button_top"> <img src="img/facebook-share-black.png" onmouseover="this.src='img/facebook-share.png';"onmouseout="this.src='img/facebook-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/twitter-share-black.png" onmouseover="this.src='img/twitter-share.png';"onmouseout="this.src='img/twitter-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/gplus-share-black.png" onmouseover="this.src='img/gplus-share.png';"onmouseout="this.src='img/gplus-share-black.png';"/> </div>
+		<div class="share_button_top"> <img src="img/hn-share-black.png" onmouseover="this.src='img/hn-share.png';"onmouseout="this.src='img/hn-share-black.png';"/> </div>
+</div>
+
+    <div id="posts-container"></div>
+
+    <script type="text/template" id="post-template">
+
+ <div class="article_title"> <a href="<%= url %>"> <%= title %> </a>
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> <%= shares %> </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> <%= comments %> </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date">
+    <div class="article_stats_date_day"> <%= date.day %>th </div>
+    <div class="article_stats_date_month"> <%= date.month %> </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="article_body"> <%= text %></div>
+
+<div class="read_more"> <a href="<%= url %>">Read More</a></div>
+
+</script>
+
+<script src="js/views.js"></script>
+
+<script >
+
+    var post1 = new Post({
+    title: 'How To Brand Yourself',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus.',
+    shares: 100,
+    comments: 50
+});
+
+var post2 = new Post({
+    title: 'How To Sell Yourself',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus.',
+    shares: 100,
+    comments: 50
+});
+
+var post3 = new Post({
+    title: 'How To Fuck Yourself',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus. Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus.',
+    shares: 100,
+    comments: 50
+});
+
+var post4 = new Post({});
+
+    posts.add(post1);
+    posts.add(post2);
+    posts.add(post3);
+</script>
+<!-- TEMPLATE
+    <div class="article_title"> How To Hire A Designer
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> 17 </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> 4 </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date"> 
+    <div class="article_stats_date_day"> 5th </div>
+    <div class="article_stats_date_month"> October </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="article_body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+</div>
+
+<div class="read_more"> Read More </div>
+
+
+<div class="article_title"> How To Hire A Designer
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> 17 </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> 4 </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date"> 
+    <div class="article_stats_date_day"> 5th </div>
+    <div class="article_stats_date_month"> October </div>
+    </div>
+    </div>
+    </div>
+
+ <div class="article_body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+</div>
+
+<div class="read_more"> Read More </div>
+
+
+<div class="article_title"> How To Hire A Designer
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> 17 </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> 4 </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date"> 
+    <div class="article_stats_date_day"> 5th </div>
+    <div class="article_stats_date_month"> October </div>
+    </div>
+    </div>
+    </div>
+
+ <div class="article_body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum lorem eget finibus condimentum. Nam aliquam dolor enim, id cursus nulla ultricies vitae. In nec mi vitae neque posuere volutpat. Sed viverra auctor felis, nec vehicula justo gravida euismod. Aliquam non odio leo. Curabitur libero dui, tempus ac pulvinar mattis, volutpat eu neque. Mauris iaculis tellus eros, sed tincidunt neque porta vitae. Quisque ac fermentum ante. Duis lobortis nibh quis eros placerat facilisis in et odio. Sed quis purus imperdiet, condimentum orci in, convallis quam.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+
+Mauris id arcu lorem. Sed eget justo eu ex scelerisque pulvinar. Vestibulum in nisl lectus. Sed a pellentesque risus, in consectetur risus. Donec feugiat volutpat turpis, eget rutrum diam aliquam ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque scelerisque massa vel interdum pulvinar. Nam at nisi mi. Nullam eu iaculis ipsum. Aliquam tortor nisi, elementum vitae purus quis, imperdiet ultricies tellus. Duis sed finibus risus, at tempus purus.
+</div>
+
+<div class="read_more"> Read More </div>
+
+-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>
+</div>
+  </body>
+</html>

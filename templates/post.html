@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    {% load staticfiles %}
+    <!-- Bootstrap -->
+    <link href=" {% static "css/index.css" %}" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+    <script src="{% static "js/models.js" %}"></script>
+    <script src="{% static "js/hello.js" %}"></script>
+    <script type="text/javascript">
+    hello.init({
+        facebook : '680886061993373',
+        twitter: 'yKJUzFNXKWsGaiD5zInpl984M',
+        google: '594781319423-71510ku0kbespcni802smdh31lijq0mp.apps.googleusercontent.com'
+});
+    </script>
+    <script type="text/javascript">
+        var post = {{post_obj}};
+        var comment_array = post.comments;
+    </script>
+  </head>
+  <body>  
+<div class="menu">
+<div class="back_button"> <a href="/">Home</a> </div>
+<div class="menu_body">
+	<div class="profile_picture"> <img src=" {%  static "img/profile_pic.png" %}" /> 		<div class="profile_name">Eduardo Alves</div>
+	<div class="profile_description">Developer.Entrepreneur.Hustler</div>
+<ul class="menu_links">
+  <li>About</li>
+  <li>Contact</li>
+  <li>Twitter</li>
+  <li>Instagram</li></br>
+  <li>Betapp</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="blog">
+    <div class="top_share" id="share_menu_top">
+     <div class="top_share_title">How To Hire A Designer</div>
+	<div class="top_share_text">Help your friends learn how to hire a designer, share this article!</div>
+		<div class="share_button_top"> <img src=" {% static 'img/facebook-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');"  onmouseover="this.src=' {% static 'img/facebook-share.png' %}';"onmouseout="this.src=' {% static 'img/facebook-share-trans.png' %}';"/> </div>
+		<div class="share_button_top"> <img src=" {% static 'img/twitter-share-trans.png' %}" onclick="window.open('http://twitter.com/share?text='+post.title+'&url=http://localhost:8000/'+post.url,'', 'width=400, height=450');" onmouseover="this.src=' {% static 'img/twitter-share.png' %}';"onmouseout="this.src=' {% static 'img/twitter-share-trans.png' %}';"/> </div>
+		<div class="share_button_top"> <img src=" {% static 'img/gplus-share-trans.png' %}" onclick="window.open('https://plus.google.com/share?url=http://localhost:8000/'+post.url,'', 'width=400, height=500');" onmouseover="this.src=' {% static 'img/gplus-share.png' %}';"onmouseout="this.src='{% static 'img/gplus-share-trans.png' %}';"/> </div>
+		<!-- <div class="share_button_top"> <img src="{% static 'img/hn-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');" onmouseover="this.src='{% static 'img/hn-share.png' %}';"onmouseout="this.src='{% static 'img/hn-share-trans.png' %}';"/> </div> -->
+    </div>
+<div id="posts-container"></div>
+<script type="text/template" id="post-template">
+
+ <div class="article_title"> <%= title %>
+    <div class="article_stats">
+    <div class="article_stats_like">
+    <div class="article_stats_like_number"> <%= shares %> </div>
+    <div class="article_stats_like_text"> Shares </div>
+    </div>
+    <div class="article_stats_comment">
+    <div class="article_stats_comment_number"> <%= comment_count %> </div>
+    <div class="article_stats_comment_text"> Replies </div>
+    </div>
+    <div class="article_stats_date">
+    <div class="article_stats_date_day"> <%= date.day %>th </div>
+    <div class="article_stats_date_month"> <%= date.month %> </div>
+    </div>
+    </div>
+    </div>
+    <div class="article_body">
+    <h3>In this day and age design is getting more and more important, at the same time 9 out of 10 startups have aweful websites, I'm going to teach you how to be the exception.</h3>
+    <%= text %>
+    <h2> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies lobortis eros, at tristique sem pulvinar non. Fusce nisi purus, lobortis non sagittis ac, venenatis eget ante. </h2>
+    <ul>
+    <li> <strong>Lorem Ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies lobortis eros, at tristique sem pulvinar non. Fusce nisi purus, lobortis non sagittis ac, venenatis eget ante. </li>
+    <li> <strong>Lorem Ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies lobortis eros, at tristique sem pulvinar non. Fusce nisi purus, lobortis non sagittis ac, venenatis eget ante. </li>
+    <li> <strong>Lorem Ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies lobortis eros, at tristique sem pulvinar non. Fusce nisi purus, lobortis non sagittis ac, venenatis eget ante. </li>
+    </ul>
+    <div class="article_quote">
+    <div class="article_quote_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="article_quote_author"> -Ali Bumaye </div>
+    </div>
+    <div class="article_quote">
+    <div class="article_quote_text"> "Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
+    <div class="article_quote_author"> -Ali Bumaye </div>
+    </div>
+
+   <div class="quote_container">
+    <div class="article_quote_half_left">
+    <div class="article_quote_text"> "Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
+    <div class="article_quote_author_half"> -Ali Bumaye </div>
+    </div>
+    </div>
+     Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    </div>
+</script>
+<div class="bot_share">Sharing this article will increase your website shares by 350%.</br>
+	<div class="share_button"> <img src=" {% static 'img/facebook-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');" onmouseover="this.src=' {% static 'img/facebook-share.png' %}';"onmouseout="this.src='{% static 'img/facebook-share-trans.png' %}';"/></div>
+	<div class="share_button"> <img src="{% static 'img/twitter-share-trans.png' %}" onclick="window.open('http://twitter.com/share?text='+post.title+'&url=http://localhost:8000/'+post.url,'', 'width=400, height=450');" onmouseover="this.src='{% static 'img/twitter-share.png' %}';"onmouseout="this.src='{% static 'img/twitter-share-trans.png' %}';"/></div>
+	<div class="share_button"> <img src="{% static 'img/gplus-share-trans.png' %}" onclick="window.open('https://plus.google.com/share?url=http://localhost:8000/'+post.url,'', 'width=400, height=500');" onmouseover="this.src='{% static 'img/gplus-share.png' %}';"onmouseout="this.src='{% static 'img/gplus-share-trans.png' %}';"/></div>
+	<!--  <div class="share_button"> <img src="{% static 'img/hn-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');" onmouseover="this.src='{% static 'img/hn-share.png' %}';"onmouseout="this.src='{% static 'img/hn-share-trans.png' %}';"/> </div>-->
+</div>
+
+<div class="divider_text"> {{ post_obj.comment_count }} Comments </div>
+    <div class="comments" id="comments"></div>
+    <div id="disqus_thread" class="comment"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'eduardoalves'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% comment %}<script type="text/template" id="comment-template">
+
+	<div class="comment">
+		<div class="comment_picture"> <img src="<%= picture %>" /> </div>
+	<div class="comment_info">
+		<div class="comment_name"> <%= name %> </div>
+		<div class="comment_text"> <%= text %> </div>
+		<div class="comment_date"> <%= date.day%>th <%= date.month %>, <%= date.year %> </div>
+		<div class="comment_functionalities">Reply</div>
+</div>
+</div>
+</script>
+{% endcomment %}
+    <script src=" {% static "js/views.js" %}"></script>
+    <script type="text/javascript">
+    posts.add(post);
+    var counter;
+    for (counter=0; counter<comment_array.length; counter++){
+        comment_obj = new Comment({
+                picture: comment_array[counter].picture,
+                name: comment_array[counter].name,
+                text: comment_array[counter].text,
+                date: {
+                    day: comment_array[counter].date.day,
+                    month: comment_array[counter].date.month,
+                    year: comment_array[counter].date.year
+                }
+            })
+        comments.add(comment_obj);
+        };
+
+    </script>
+
+    <script type="text/javascript">
+    $(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 200) {
+        $('#share_menu_top').fadeIn();
+    } else {
+        $('#share_menu_top').fadeOut();
+    }
+});
+    </script>
+
+    <script type="text/javascript">
+    function toggle_comments(){
+        var login_buttons = document.getElementsByClassName('comment_submit_buttons'), i;
+        for (var i = 0; i < login_buttons.length; i ++) {
+            login_buttons[i].style.display = 'none';
+        }
+        var submit_button = document.getElementsByClassName('send_email_comment_button');
+        submit_button[0].style.display='inline-block';
+        var email_input = document.getElementsByClassName('new_comment_email');
+        email_input[0].style.display='inline-block';
+        var name_input = document.getElementsByClassName('new_comment_name');
+        name_input[0].style.display='inline-block';
+        var authenticated = false;
+    }
+    </script>
+
+{% comment %}
+<div class="divider_text"> Leave A Comment </div>
+
+<div class="comment_box"> 
+<form id="comment_form" action="">
+<textarea id="comment_textarea" class="comment_input" name="comment" placeholder="Your comment here..."></textarea>
+<input type="text" class="new_comment_name" placeholder="Your name here...">
+<input type="text" class="new_comment_email" placeholder="Your email here...">
+</form>
+<div class="comment_submit_buttons_submit">
+<div class="send_email_comment_button">
+<img class="facebook_submit" onclick="send_comment()" src=" {% static 'img/send-email-comment-black.png' %}" alt="submit Button" onMouseOver="this.src='{% static 'img/send-email-comment-reg.png' %}'" onMouseOut="this.src='{% static 'img/send-email-comment-black.png' %}'"> <p>Submit Comment</span> </p>
+</div>
+</div>
+<div class="comment_submit_buttons">
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit" onclick="hello( 'facebook' ).login()" src=" {%  static "img/facebook-black.png" %}" alt="submit Button" onMouseOver="this.src=' {% static 'img/facebook-reg.png' %}'" onMouseOut="this.src=' {% static 'img/facebook-black.png' %}'"> <p>Submit With Facebook</p>
+</div>
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit"  onclick="hello( 'twitter' ).login()" src=" {% static "img/twitter-black.png" %}" alt="submit Button" onMouseOver="this.src='{% static 'img/twitter-reg.png' %}'" onMouseOut="this.src='{% static 'img/twitter-black.png'%}'"> <p>Submit With Twitter</p>
+</div>
+<div class="comment_submit_buttons_facebook">
+<img class="facebook_submit" onclick="hello( 'google' ).login()" src="{% static "img/gplus-black.png" %}" alt="submit Button" onMouseOver="this.src='{% static 'img/gplus-reg.png' %}'" onMouseOut="this.src='{% static 'img/gplus-black.png' %}'"> <p>Submit With Google+</p></img>
+</div>
+<div class="comment_submit_buttons_facebook">
+<input type="image" class="facebook_submit"  onclick="toggle_comments()" src="{% static "img/email-black.png" %}" alt="submit Button" onMouseOver="this.src='{% static 'img/email-reg.png' %}'" onMouseOut="this.src='{% static 'img/email-black.png' %}'"> <p>Submit With Email</span> </p>
+</div>
+</div>
+</div>
+{% endcomment %}
+
+<script type="text/javascript">
+    function send_comment(){
+        if($('#comment_textarea').val()==''){
+            alert('Please write a comment text.')
+        }
+        else{
+        if (authenticated == true){
+            $.post( "/create_comment/", { post_id: post.post_id, comment_text: $('#comment_textarea').val(), network: network, reader_id: reader_id, reader_name: reader_name, image: reader_img})
+            .done(function( data ) {
+                comment_obj = new Comment({
+                picture: data.picture,
+                name: data.name,
+                text: data.text,
+                date: {
+                    day: data.date.day,
+                    month: data.date.month,
+                    year: data.date.year
+                }
+            })
+        comments.add(comment_obj);
+          });
+        }
+        else{
+
+        }
+        $('#comment_textarea').val("");
+        }
+}
+</script>
+
+<div class="divider_text"> Related Articles </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+</div>
+</div>
+<script type="text/javascript">
+        var reader_name;
+		var reader_id;
+        var reader_img;
+        var network;
+hello.on('auth.login', function(auth){
+	
+	// call user information, for the given network
+	hello( auth.network ).api( '/me' ).then( function(r){
+        var login_buttons = document.getElementsByClassName('comment_submit_buttons'), i;
+        for (var i = 0; i < login_buttons.length; i ++) {
+            login_buttons[i].style.display = 'none';
+        }
+        var submit_button = document.getElementsByClassName('send_email_comment_button');
+        submit_button[0].style.display='inline-block';
+		reader_name = r.name;
+		reader_id = r.id;
+        network = auth.network;
+        if(network=='facebook'){
+           reader_img = r.thumbnail+'?width=500&height=500';
+        }
+        else if(network=='google'){
+            reader_img = r.thumbnail+'0'
+        }
+        else{
+            reader_img = r.thumbnail
+        }
+	});
+});
+    var authenticated = true;
+</script>
+</body>
+</html>

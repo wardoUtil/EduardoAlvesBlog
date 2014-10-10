@@ -1,0 +1,504 @@
+@font-face {
+    font-family: delicious;
+    src: url(../fonts/Delicious/Delicious-Roman.otf) format("opentype");;
+}
+
+@font-face {
+    font-family: delicious_bold;
+    weight: bold;
+    src: url(../fonts/Delicious/Delicious-Bold.otf) format("opentype");
+}
+
+::selection {
+    text-shadow: none;
+    color: white;
+    background: #2c3e50;
+}
+
+html, body{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+a:link {
+	text-decoration: none;
+    color: black;
+}
+
+.divider_text {
+	font-size: 34px;
+	text-align: center;
+	margin-top:60px;
+	font-family: delicious_bold;
+}
+
+.menu {
+	background-color: #fff;
+	float: left;
+	width: 30%;
+	height:100%;
+	display: block;
+	margin: 0px;
+	position: fixed;
+}
+
+.back_button {
+	font-size: 2.2em;
+	text-align: center;
+	margin-top: 40px;
+	font-family: delicious;
+}
+
+.back_button a {
+	color: black;
+}
+
+.menu_body{
+	margin: 20px;
+	margin-top: 20px;
+}
+
+.menu_links{
+	list-style: none;
+	margin-top: 20px;
+   	padding-left: 1em;
+   	text-indent: -1em;
+	font-size: 2em;
+	font-size: 2vw;
+	font-family: delicious;
+}
+
+.menu_links li:hover {
+	color: #2c3e50;
+}
+
+.profile_picture img {
+	display:block;
+        min-width: 32px;
+        min-height: 32px;
+	max-width: 200px;
+        max-height: 200px;
+	margin: 0 auto;
+}
+
+.profile_picture img {
+	background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+	width: 100%;
+	height: 100%;
+}
+
+
+.profile_name {
+	font-size:3em;
+	font-size: 3vw;
+	text-align: center;
+	font-weight: bold;
+	font-family: delicious_bold;
+}
+
+.profile_description {
+	font-family: arial;
+	font-size:1em;
+	font-size: 1vw;
+	text-align: center;
+	font-family: delicious;
+}
+
+.blog {
+	overflow: auto;
+	margin-left: 30%;
+	width: 70%;
+	height: 100%;
+}
+
+.top_share {
+    font-family: delicious;
+	left: 30%;
+	width: 70%;
+	height: auto;
+	border: 0px solid black;
+	position: fixed;
+	background-color: #fff;
+	text-align: center;
+    display: none;
+}
+
+.top_share_text {
+	font-size: 14px;
+}
+
+.top_share_title {
+    font-family: delicious_bold;
+	font-size: 24px;
+}
+
+.article_title {
+	font-size: 44px;
+	font-weight: bold;
+	margin: 20px;
+	height: auto;
+	font-family: delicious_bold;
+}
+
+.article_title a {
+    color: black;
+}
+
+.article_title a:hover {
+    text-decoration: underline;
+}
+
+.article_stats {
+	float: right;
+	width: 200px;
+	height: 100%;
+	font-size: 14px;
+	font-family: delicious_bold;
+    text-align: center;
+
+}
+
+.article_stats_like {
+	display: inline-block;
+	float: left;
+	width: 33%;
+	padding-top: 10px;
+	height:100%;
+	background-color: transparent;
+}
+
+.article_stats_comment {
+	display: inline-block;
+	width: 33%;
+	padding-top: 10px;
+	height:100%;
+	background-color: transparent;
+}
+
+.article_stats_date {
+	display: inline-block;
+	float: right;
+	width: 33%;
+	padding-top: 10px;
+	height:100%;
+	background-color: transparent;
+}
+
+.read_more {
+	font-size: 1.5em;
+	text-align: center;
+	margin-bottom: 40px;
+    	font-family: delicious_bold;
+}
+
+.read_more a {
+    color: black;
+}
+
+.read_more a:hover {
+    text-decoration: underline;
+}
+
+.article_body {
+	font-family: delicious;
+	font-size: 18px;
+	margin: 20px;
+	margin-bottom: 0;
+    line-height: 1.5;
+    width: 90%;
+    display: inline-block;
+}
+
+.blog h2 {
+    text-align: center;
+	font-size: 34px;
+	font-family: delicious;
+    font-weight: normal;
+}
+
+.blog h3 {
+    text-align: left;
+	font-size: 26px;
+	font-family: delicious;
+    font-weight: normal;
+    margin: 0;
+}
+
+.article_body ul {
+    list-style: none;
+    width: 66%;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.article_body li {
+    border-left: 20px solid #2c3e50;
+    padding: 15px;
+    background: #ececec;
+    margin-top: 10px;
+}
+
+.article_body li strong {
+    font-family: delicious_bold;
+}
+
+.article_quote {
+    height: auto;
+    width: auto;
+    margin-top: 20px;
+}
+
+.quote_container {
+    overflow: auto;
+    display: inline;
+}
+
+.article_quote_half_left {
+    height: auto;
+    width: 50%;
+    margin: 20px 0 0 20px;
+    float: left;
+    display: inline;
+}
+
+.article_quote_half_right {
+    height: auto;
+    width: 50%;
+    margin: 20px 20px 0 0;
+    float: right;
+    display: inline-block;
+}
+
+/*.article_quote :before {*/
+    /*background-image: url('../img/quote_start.png');*/
+    /*background-position: left center;*/
+    /*background-repeat: no-repeat;*/
+    /*padding: 0 5px;*/
+    /*background-size: 16px 16px;*/
+    /*content: "\00a0";*/
+/*}*/
+/*.article_quote :after {*/
+    /*background-image: url('../img/quote_end.png');*/
+    /*background-position: left center;*/
+    /*background-repeat: no-repeat;*/
+    /*padding: 0 5px;*/
+    /*background-size: 16px 16px;*/
+    /*content: "\00a0";*/
+/*}*/
+
+.article_quote img {
+    height: 16px;
+    width: 16px;
+    display: inline;
+}
+
+.article_quote_text {
+    font-family: delicious;
+    font-size: 30px;
+    display: inline;
+    color: #2c3e50;
+}
+
+.article_quote_author {
+    text-align: left;
+    font-size: 12px;
+    color: #bdc3c7;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.article_quote_author_half {
+    text-align: left;
+    font-size: 12px;
+    color: #bdc3c7;
+    display: block;
+    margin-left: 10px;
+}
+
+.bot_share {
+	width: 90%;
+	height: auto;
+	border: 0px solid black;
+	margin: 0 auto;
+	margin-top: 60px;
+	background-color: #fff;
+    text-align: center;
+    display: block;
+    text-align: center;
+	font-size: 34px;
+	font-family: delicious;
+}
+
+.share_button {
+	display: inline-block;
+	max-width: 64px;
+	max-height: 64px;
+	min-width: 32px;
+	min-height: 32px;
+	width: 20%;
+	height: 35%;
+	margin-top: 20px;
+    cursor: pointer;
+}
+
+.share_button_top {
+	display: inline-block;
+	max-width: 32px;
+	max-height: 32px;
+	min-width: 16px;
+	min-height: 16px;
+	width: 20%;
+	height: 35%;
+	margin-top: 5px;
+    cursor: pointer;
+
+}
+
+.share_button img {
+	width: 100%;
+	height: 100%;
+}
+
+.share_button_top img {
+	width: 100%;
+	height: 100%;
+}
+
+.comments {
+	margin-top: 20px;
+	margin-left: 50px;
+    text-align: center;
+}
+
+.comment {
+	margin-top: 20px;
+	margin-left: 50px;
+	width: 80%;
+}
+
+.response_comment {
+	margin-top: 10px;
+	margin-left: 150px;
+	width: 65%;
+}
+
+.comment_picture {
+	float:left;
+        width: 100px;
+	margin-right: 20px;
+}
+
+.comment_picture img {
+	background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+}
+
+.comment_info {
+	display: inline;
+}
+
+.comment_name {
+	height: auto;
+	font-size: 24px;
+	font-family: delicious_bold;
+}
+
+.comment_text {
+	font-family: delicious;
+	margin-top: 5px;
+	font-size: 1em;
+}
+
+.comment_date {
+	font-size: .75em;
+	font-family: delicious_bold;
+}
+
+.comment_functionalities {
+	margin-top: 5px;
+	font-size: 1.25em;
+	color: #2c3e50;
+	font-family: delicious_bold;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.comment_box {
+	font-size: 14px;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-family: delicious;
+}
+
+.comment_input {
+	font-family: delicious;
+	width: 100%;
+	height: 150px;
+	font-size: 14px;
+}
+
+.new_comment_name {
+	font-family: delicious;
+	width: 100%;
+	height: auto;
+	font-size: 14px;
+	display: none;
+    border: 0 gray;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+}
+
+.new_comment_email {
+	font-family: delicious;
+	width: 100%;
+	height: auto;
+	font-size: 14px;
+	margin-top: 4px;
+	display: none;
+    border: 0 gray;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+}
+
+.comment_submit_buttons {
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.comment_submit_buttons_submit {
+	margin-top: 20px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.comment_submit_buttons_facebook {
+	display: inline-block;
+	width: 20%;
+	min-width: 64px;
+}
+
+.send_email_comment_button {
+	display: inline-block;
+	width: 20%;
+	min-width: 64px;
+	display:none;
+}
+
+.facebook_submit {
+    cursor: pointer;
+}
+
+.comment_submit_buttons span {
+}
