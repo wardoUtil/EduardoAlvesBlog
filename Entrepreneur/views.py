@@ -97,7 +97,7 @@ def render_post(request, post_url):
     post_obj = {}
     full_post_info(post=post, response=post_obj)
     #post_obj = json.dumps(post_obj)
-    return render_to_response('post.html', {'post_obj':SafeString(post_obj)})
+    return render_to_response('post.html', {'post_obj':(post_obj)})
 
 
 def render_homepage(request):

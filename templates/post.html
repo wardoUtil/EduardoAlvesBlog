@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     {% load staticfiles %}
+    {% load jsonify %}
     <!-- Bootstrap -->
     <link href=" {% static "css/index.css" %}" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -21,7 +22,7 @@
 });
     </script>
     <script type="text/javascript">
-        var post = {{post_obj}};
+        var post = {{post_obj|jsonify}};
         var comment_array = post.comments;
     </script>
   </head>
@@ -107,7 +108,7 @@
 	<!--  <div class="share_button"> <img src="{% static 'img/hn-share-trans.png' %}" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/'+post.url,'', 'width=200, height=200');" onmouseover="this.src='{% static 'img/hn-share.png' %}';"onmouseout="this.src='{% static 'img/hn-share-trans.png' %}';"/> </div>-->
 </div>
 
-<div class="divider_text"> {{ post_obj.comment_count }} Comments </div>
+<div class="divider_text"> {{ post_obj.comment_count|safe }} Comments </div>
     <div class="comments" id="comments"></div>
     <div id="disqus_thread" class="comment"></div>
     <script type="text/javascript">
